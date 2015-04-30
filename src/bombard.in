@@ -1,8 +1,4 @@
 %_PERL%
-#
-# bombard
-# Author: Bill Proud <bill.proud@nl.wanadoo.com>
-#
 
 use POSIX;
 use Getopt::Std;
@@ -76,7 +72,9 @@ die "The URL file is not readable: $!\n" unless -r $sites;
 my $clients = $start;
 my $i;
 for ($i = 1; $runs >= $i; $i++) {
-  system("$siege $header -f $sites -c $clients -t $length -d $delay -i");
+  #system("$siege $header -f $sites -c $clients -t $length -d $delay -i");
+  my $result = `$siege $header -f $sites -c $clients -t $length -d $delay -i`;
+  print "$result\n";
   $clients += $inc;
 }
 
@@ -99,11 +97,11 @@ while (<SITE>) {
 }
 close INFO;
 
-chdir $date;
-print "Generating graphs...\n";
-system "$bdir/prepdata $time $start $inc";
-system "$bdir/siegechart -f $time.resp.png -y 'Response Time' $time.resp";
-system "$bdir/siegechart -f $time.tps.png -y TPS $time.tps";
-system "$bdir/siegechart -f $time.bps.png -y BPS $time.bps";
-system "$bdir/siegechart -f $time.conc.png -y Connections $time.conc";
+#chdir $date;
+#print "Generating graphs...\n";
+#system "$bdir/prepdata $time $start $inc";
+#system "$bdir/siegechart -f $time.resp.png -y 'Response Time' $time.resp";
+#system "$bdir/siegechart -f $time.tps.png -y TPS $time.tps";
+#system "$bdir/siegechart -f $time.bps.png -y BPS $time.bps";
+#system "$bdir/siegechart -f $time.conc.png -y Connections $time.conc";
 
