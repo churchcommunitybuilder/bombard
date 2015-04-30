@@ -1,0 +1,15 @@
+doc/Makefile
+src/Makefile
+utils/Makefile
+Makefile
+config.h
+config.log
+config.status
+stamp-h
+stamp-h1
+
+doc/bombard.1
+doc/siegechart.1
+src/bombard
+src/prepdata
+src/siegechart
