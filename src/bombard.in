@@ -42,7 +42,7 @@ current directory is used\n";
 
 if( $opt_v ){ print $version; exit; }
 if( $opt_h ){ print $usage; exit; }
-die $usage unless $sites and $start and $inc;
+die $usage unless $sites and $start;
 
 my $logf;
 my $rc = $ENV{HOME} . "/.siegerc";

@@ -7,7 +7,7 @@ config.log
 config.status
 stamp-h
 stamp-h1
-
+*.swp
 doc/bombard.1
 doc/siegechart.1
 src/bombard
